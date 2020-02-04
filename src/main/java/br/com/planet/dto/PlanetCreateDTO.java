@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class PlanetCreateDTO {
 
-	@JsonIgnore
+	//@JsonIgnore
 	private Integer id;
 	private String description;
 	private String name;

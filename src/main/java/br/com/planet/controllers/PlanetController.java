@@ -26,7 +26,7 @@ public class PlanetController {
     private PlanetService planetService;
 
     @PostMapping(value = "/v1/planets")
-    public ResponseEntity<Void> createPlanet(@RequestBody @Valid final PlanetCreateDTO planetDTO) {
+    public ResponseEntity<PlanetCreateDTO> createPlanet(@RequestBody @Valid final PlanetCreateDTO planetDTO) {
         log.info("Create planet >>> {}", planetDTO);
         PlanetCreateDTO saved = planetService.createPlanet(planetDTO);
         log.info("Planet saved successfully {}", saved);
@@ -36,7 +36,7 @@ public class PlanetController {
                 .path("/{id}")
                 .buildAndExpand(saved.getId()).toUri();
 
-        return ResponseEntity.created(location).build();
+        return ResponseEntity.created(location).body(saved);
     }
 
     @GetMapping(value = "/v1/planets")

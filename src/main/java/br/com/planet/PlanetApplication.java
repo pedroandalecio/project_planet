@@ -30,7 +30,7 @@ public class PlanetApplication {
     public ModelMapper modelMapper() {
         return new ModelMapper();
     }
-    
+    /*
     @Bean
 	CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration().applyPermitDefaultValues();
@@ -39,7 +39,7 @@ public class PlanetApplication {
 		source.registerCorsConfiguration("/**", configuration);
 		return source;
 	}
-    
+    */
     @Bean
     public DataSource dataSource(DataSourceProperties dataSourceProperties) {
         return dataSourceProperties.initializeDataSourceBuilder().build();
